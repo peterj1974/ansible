@@ -1,0 +1,15 @@
+---
+-
+  hosts: all
+  tasks:
+  - name: create before boot directory
+    file:
+      path: /tmp/beforeboot
+      state: directory
+  - name: Reboot the server
+    reboot:
+    become: yes
+  - name: create before boot directory
+    file:
+      path: /tmp/afterboot
+      state: directory
